@@ -1,0 +1,6 @@
+La carpeta dist contiene el programa listo para usar.
+Para ejecutarlo, sitúate dentro de la carpeta dist y en consola tipeá:
+
+java -jar IPFixed.jar
+
+En windows, bastará con hacerle doble clic sobre el archivo .jar (si tenés bien configurado el path).
