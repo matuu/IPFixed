@@ -47,6 +47,22 @@ public class HostModel extends AbstractTableModel {
         avisaSuscriptores(evento);
 
     }
+    
+    public void removerFila (int row)
+    {
+        datos.remove(row);
+        
+
+        TableModelEvent evento;
+        evento = new TableModelEvent (this, row,
+            row , TableModelEvent.ALL_COLUMNS,
+            TableModelEvent.DELETE);
+
+        avisaSuscriptores (evento);
+
+    }
+    
+    
     public void cargarHosts(ArrayList<Host> h){
         for(int i=0;i<h.size();i++){
             addHost(h.get(i));

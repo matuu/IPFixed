@@ -117,6 +117,11 @@ public class Main extends javax.swing.JFrame {
 
         eliminarHost.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/116.png"))); // NOI18N
         eliminarHost.setText("Eliminar");
+        eliminarHost.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarHostActionPerformed(evt);
+            }
+        });
         conceptualMenu.add(eliminarHost);
 
         editarConfig.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -381,7 +386,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(logOut, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -567,6 +572,23 @@ public class Main extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_guardarDatos1ActionPerformed
+
+    private void eliminarHostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarHostActionPerformed
+        try {
+            temp = hm.getFila(tablaHosts.getSelectedRow());
+            if(JOptionPane.YES_OPTION==JOptionPane.showConfirmDialog(null, "¿Está seguro de quitar este "
+                    + "host de su configuración?",
+                    "¿Está seguro?", JOptionPane.YES_NO_OPTION)){
+                hosts.remove(temp);
+                hm.removerFila(tablaHosts.getSelectedRow());   
+            }
+        } catch (IndexOutOfBoundsException ex) {
+            logOut.setText("Debe seleccionar una fila primero.");
+        } catch (NullPointerException ex) {
+            logOut.setText("Debe seleccionar una fila primero.");
+        }
+        
+    }//GEN-LAST:event_eliminarHostActionPerformed
 
     /**
      * @param args the command line arguments
