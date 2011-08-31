@@ -16,6 +16,7 @@ import Excepcion.ExceptionIPFixed;
 import Modelo.Host;
 import Modelo.HostModel;
 import Modelo.Ip;
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,7 +25,6 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.filechooser.FileNameExtensionFilter;
-
 
 /**
  *
@@ -35,9 +35,19 @@ public class Main extends javax.swing.JFrame {
     /** Creates new form Main */
     public Main() {
         initComponents();
-        //TODO agregar menú conceptual- eliminar/editar
-        //conceptualMenu.add(eliminarHost);
-        //conceptualMenu.add(editarHost);
+        setLocationRelativeTo(null);
+        splash();
+
+    }
+
+    /** Splash inicial
+     * 
+     */
+    private void splash() {
+        splash = new Inicio(this, true);
+        splash.setLocationRelativeTo(null);
+        splash.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+        splash.setVisible(true);
     }
 
     /** This method is called from within the constructor to
@@ -50,8 +60,18 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         conceptualMenu = new javax.swing.JPopupMenu();
-        eliminarHost = new javax.swing.JMenuItem();
         editarHost = new javax.swing.JMenuItem();
+        eliminarHost = new javax.swing.JMenuItem();
+        editarConfig = new javax.swing.JDialog();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        nombreTextEditar = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        macTextEditar = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        ipTextEditar = new javax.swing.JTextField();
+        cerrarEditar = new javax.swing.JButton();
+        guardarDatos1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         nombreText = new javax.swing.JTextField();
@@ -83,16 +103,73 @@ public class Main extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         exportarItalc = new javax.swing.JMenuItem();
         toDHCPfile = new javax.swing.JMenuItem();
+        ayudaMenu = new javax.swing.JMenu();
+        acercaDeMenu = new javax.swing.JMenuItem();
 
-        eliminarHost.addActionListener(new java.awt.event.ActionListener() {
+        editarHost.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/2.png"))); // NOI18N
+        editarHost.setText("Editar");
+        editarHost.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eliminarHostActionPerformed(evt);
+                editarHostActionPerformed(evt);
             }
         });
-        conceptualMenu.add(eliminarHost);
         conceptualMenu.add(editarHost);
 
+        eliminarHost.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/116.png"))); // NOI18N
+        eliminarHost.setText("Eliminar");
+        conceptualMenu.add(eliminarHost);
+
+        editarConfig.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        editarConfig.setTitle("Editar Configuración");
+        editarConfig.setMinimumSize(new java.awt.Dimension(357, 200));
+        editarConfig.setModal(true);
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Editar Configuración"));
+        jPanel4.setLayout(new java.awt.GridLayout(4, 2));
+
+        jLabel5.setText("Nombre:");
+        jPanel4.add(jLabel5);
+        jPanel4.add(nombreTextEditar);
+
+        jLabel6.setText("MAC Adress:");
+        jPanel4.add(jLabel6);
+        jPanel4.add(macTextEditar);
+
+        jLabel7.setText("Dirección IP:");
+        jPanel4.add(jLabel7);
+        jPanel4.add(ipTextEditar);
+
+        cerrarEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/116.png"))); // NOI18N
+        cerrarEditar.setText("Cerrar");
+        cerrarEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cerrarEditarActionPerformed(evt);
+            }
+        });
+        jPanel4.add(cerrarEditar);
+
+        guardarDatos1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/112.png"))); // NOI18N
+        guardarDatos1.setText("Aceptar");
+        guardarDatos1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarDatos1ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(guardarDatos1);
+
+        javax.swing.GroupLayout editarConfigLayout = new javax.swing.GroupLayout(editarConfig.getContentPane());
+        editarConfig.getContentPane().setLayout(editarConfigLayout);
+        editarConfigLayout.setHorizontalGroup(
+            editarConfigLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
+        );
+        editarConfigLayout.setVerticalGroup(
+            editarConfigLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("IPFixed");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Configurar Maquina"));
         jPanel1.setLayout(new java.awt.GridLayout(4, 2));
@@ -109,6 +186,7 @@ public class Main extends javax.swing.JFrame {
         jPanel1.add(jLabel3);
         jPanel1.add(ipText);
 
+        limpiarCampos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/38.png"))); // NOI18N
         limpiarCampos.setText("Limpiar");
         limpiarCampos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,6 +195,7 @@ public class Main extends javax.swing.JFrame {
         });
         jPanel1.add(limpiarCampos);
 
+        guardarDatos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/112.png"))); // NOI18N
         guardarDatos.setText("Aceptar");
         guardarDatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,6 +225,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        usarBoolean.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/no.png"))); // NOI18N
         usarBoolean.setText("Usar");
         usarBoolean.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -182,6 +262,7 @@ public class Main extends javax.swing.JFrame {
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
 
         tablaHosts.setModel(hm);
+        tablaHosts.setComponentPopupMenu(conceptualMenu);
         jScrollPane1.setViewportView(tablaHosts);
         tablaHosts.setComponentPopupMenu(conceptualMenu);
 
@@ -189,6 +270,7 @@ public class Main extends javax.swing.JFrame {
 
         jMenu1.setText("Archivos");
 
+        abrirMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/105.png"))); // NOI18N
         abrirMenu.setText("Abrir");
         abrirMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,6 +279,7 @@ public class Main extends javax.swing.JFrame {
         });
         jMenu1.add(abrirMenu);
 
+        guardarMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/7.png"))); // NOI18N
         guardarMenu.setText("Guardar");
         guardarMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,8 +288,10 @@ public class Main extends javax.swing.JFrame {
         });
         jMenu1.add(guardarMenu);
 
+        importarMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/112.png"))); // NOI18N
         importarMenu.setText("Importar");
 
+        archivoCSVMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/8.png"))); // NOI18N
         archivoCSVMenu.setText("Archivo .csv");
         archivoCSVMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,6 +302,7 @@ public class Main extends javax.swing.JFrame {
 
         jMenu1.add(importarMenu);
 
+        salirMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/Exit.png"))); // NOI18N
         salirMenu.setText("Salir");
         salirMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,6 +315,7 @@ public class Main extends javax.swing.JFrame {
 
         jMenu3.setText("Editar");
 
+        limpiarMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/38.png"))); // NOI18N
         limpiarMenu.setText("Limpiar Hosts");
         limpiarMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -241,6 +328,7 @@ public class Main extends javax.swing.JFrame {
 
         jMenu2.setText("Herramientas");
 
+        exportarItalc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/54.png"))); // NOI18N
         exportarItalc.setText("Exportar configuración a iTalc");
         exportarItalc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,6 +337,7 @@ public class Main extends javax.swing.JFrame {
         });
         jMenu2.add(exportarItalc);
 
+        toDHCPfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/31.png"))); // NOI18N
         toDHCPfile.setText("Exportar a formato DHCP");
         toDHCPfile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -259,17 +348,30 @@ public class Main extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        ayudaMenu.setText("Ayuda");
+
+        acercaDeMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/65.png"))); // NOI18N
+        acercaDeMenu.setText("Acerca de");
+        acercaDeMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                acercaDeMenuActionPerformed(evt);
+            }
+        });
+        ayudaMenu.add(acercaDeMenu);
+
+        jMenuBar1.add(ayudaMenu);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
-            .addComponent(logOut, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
+            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
+            .addComponent(logOut, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,7 +381,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(logOut, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -313,7 +415,7 @@ public class Main extends javax.swing.JFrame {
         exportDHCP.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         exportDHCP.setVisible(true);
         tmp = toDHCPfileText();
-        //logOutText.setText(tmp);
+
     }//GEN-LAST:event_toDHCPfileActionPerformed
 
     private void nombreEstaticoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nombreEstaticoFocusLost
@@ -331,9 +433,11 @@ public class Main extends javax.swing.JFrame {
     private void usarBooleanStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_usarBooleanStateChanged
         if (usarBoolean.isSelected()) {
             usarBoolean.setText("No usar");
+            usarBoolean.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/101.png")));
             nombreText.setText(nombreEstatico.getText() + nombreIncremental.getText());
         } else {
             usarBoolean.setText("Usar");
+            usarBoolean.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/no.png")));
 
         }
     }//GEN-LAST:event_usarBooleanStateChanged
@@ -366,9 +470,10 @@ public class Main extends javax.swing.JFrame {
 
     private void limpiarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarMenuActionPerformed
         limpiar();
-        hosts =new ArrayList<Host>();
+        hosts = new ArrayList<Host>();
         logOut.setText("");
         hm.vaciar();
+        temp = new Host();
     }//GEN-LAST:event_limpiarMenuActionPerformed
 
     private void exportarItalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportarItalcActionPerformed
@@ -387,16 +492,15 @@ public class Main extends javax.swing.JFrame {
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos XML", "xml");
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileFilter(filter);
-        int seleccion = fileChooser.showSaveDialog(this);
+        int seleccion = fileChooser.showOpenDialog(this);
         if (seleccion == JFileChooser.APPROVE_OPTION) {
             if (fileChooser.getSelectedFile() != null) {
-               LeerXML a = new LeerXML();
-                if(a.open(fileChooser.getSelectedFile())){
-                    
-                }else{
+                LeerXML a = new LeerXML();
+                if (a.open(fileChooser.getSelectedFile())) {
+                } else {
                     JOptionPane.showMessageDialog(this, "Error al abrir el archivo. Intente nuevamente", "Oups", JOptionPane.ERROR_MESSAGE);
                 }
-                
+
 
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Seleccione un donde guardar primero.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -404,30 +508,85 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_abrirMenuActionPerformed
 
-    private void eliminarHostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarHostActionPerformed
-        Host h =(Host) hm.getFila(tablaHosts.getSelectedRow());
-        hosts.remove(h);
-    }//GEN-LAST:event_eliminarHostActionPerformed
+    private void acercaDeMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acercaDeMenuActionPerformed
+        JDialog ayudaDialog = new Ayuda(this, true);
+        ayudaDialog.setLocationRelativeTo(null);
+        ayudaDialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        ayudaDialog.setVisible(true);
+    }//GEN-LAST:event_acercaDeMenuActionPerformed
+
+    private void editarHostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarHostActionPerformed
+
+        try {
+            temp = hm.getFila(tablaHosts.getSelectedRow());
+            nombreTextEditar.setText(temp.getNombre());
+            macTextEditar.setText(temp.getMac());
+            ipTextEditar.setText(temp.getIp());
+            editarConfig.setLocationRelativeTo(null);
+            editarConfig.setVisible(true);
+
+
+
+
+        } catch (IndexOutOfBoundsException ex) {
+            logOut.setText("Debe seleccionar una fila primero.");
+        } catch (NullPointerException ex) {
+            logOut.setText("Debe seleccionar una fila primero.");
+        }
+
+    }//GEN-LAST:event_editarHostActionPerformed
+
+    private void cerrarEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarEditarActionPerformed
+        editarConfig.dispose();
+        temp = new Host();
+    }//GEN-LAST:event_cerrarEditarActionPerformed
+
+    private void guardarDatos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarDatos1ActionPerformed
+        if (nombreTextEditar.getText().isEmpty() || macTextEditar.getText().isEmpty() || ipTextEditar.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Todos los campos deben contener datos.");
+        } else if (macTextEditar.getText().length() != 12) {
+            JOptionPane.showMessageDialog(rootPane, "Formato incorrecto de la MAC.\n"
+                    + "Debe ingresar solo números y letras, sin : ni -.\n"
+                    + "Son 12 caracteres alfanuméricos.");
+        } else {
+            try {
+                Host aux = hm.getFila(tablaHosts.getSelectedRow());
+
+                Ip ip = new Ip(ipTextEditar.getText());
+                Host h = new Host(nombreTextEditar.getText(), macTextEditar.getText(), ip.toString());
+                h.setId(aux.getId());
+
+                hm.insertarFila(h, tablaHosts.getSelectedRow());
+                int i = hosts.indexOf(aux);
+                hosts.remove(aux);
+                hosts.add(i, h);
+                editarConfig.dispose();
+                temp = new Host();
+            } catch (ExceptionIPFixed ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_guardarDatos1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         try {
-            
-            UIManager.setLookAndFeel( new com.nilo.plaf.nimrod.NimRODLookAndFeel());
+
+            UIManager.setLookAndFeel(new com.nilo.plaf.nimrod.NimRODLookAndFeel());
             java.awt.EventQueue.invokeLater(new Runnable() {
 
-            @Override
-            public void run() {
-                new Main().setVisible(true);
+                @Override
+                public void run() {
+                    new Main().setVisible(true);
 
-            }
-        });
+                }
+            });
         } catch (Exception e) {
         }
-        
-        
+
+
     }
 
     public void limpiar() {
@@ -435,7 +594,8 @@ public class Main extends javax.swing.JFrame {
         macText.setText(null);
         ipText.setText(null);
         logOut.setText("");
-        
+        temp = new Host();
+
     }
 
     public void insertarHost() throws ExceptionIPFixed {
@@ -445,38 +605,46 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Formato incorrecto de la MAC.\n"
                     + "Debe ingresar solo números y letras, sin : ni -.\n"
                     + "Son 12 caracteres alfanuméricos.");
+
         } else {
             Ip ip = new Ip(ipText.getText());
             Host h = new Host(nombreText.getText(), macText.getText(), ip.toString());
             h.setId(id);
-            id++;
-            hosts.add(h);
-            macText.setText("");
-            ipText.setText(ip.nextIP());
-            if (usarBoolean.isSelected()) {
-                try {
-                    int num = Integer.valueOf(nombreIncremental.getText());
-                    num++;
-                    nombreText.setText(nombreEstatico.getText() + num);
-                    nombreIncremental.setText(String.valueOf(num));
-                } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(rootPane, "La parte incremental debe ser numérica");
-                    new ExceptionIPFixed("La parte incremental debe ser numérica");
-                }
-            }
-            hm.addHost(h);
-            logOut.setText("Host " + h.getNombre() + " ingresado correctamente.");
+            if (hosts.contains(h)) {
+                String nombre=hosts.get(hosts.indexOf(h)).getNombre();
+                JOptionPane.showMessageDialog(null, "La MAC "+h.getMacCon2Puntos()+ 
+                        " se encuentra configurada en el host "+nombre);
+            } else {
 
+
+                id++;
+                hosts.add(h);
+                macText.setText("");
+                ipText.setText(ip.nextIP());
+                if (usarBoolean.isSelected()) {
+                    try {
+                        int num = Integer.valueOf(nombreIncremental.getText());
+                        num++;
+                        nombreText.setText(nombreEstatico.getText() + num);
+                        nombreIncremental.setText(String.valueOf(num));
+                    } catch (NumberFormatException ex) {
+                        JOptionPane.showMessageDialog(rootPane, "La parte incremental debe ser numérica");
+                        logOut.setText("La parte incremental debe ser numérica");
+                    }
+                }
+                hm.addHost(h);
+                logOut.setText("Host " + h.getNombre() + " ingresado correctamente.");
+            }
         }
     }
 
     public String toDHCPfileText() {
-        String temp = "";
+        String temp1 = "";
         for (int i = 0; i < hosts.size(); i++) {
-            temp += hosts.get(i).toString();
-            temp += "\n";
+            temp1 += hosts.get(i).toString();
+            temp1 += "\n";
         }
-        return temp;
+        return temp1;
     }
 
     public static ArrayList<Host> getHost() {
@@ -495,23 +663,30 @@ public class Main extends javax.swing.JFrame {
     public static void setId(int id) {
         Main.id = id;
     }
-    
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem abrirMenu;
+    private javax.swing.JMenuItem acercaDeMenu;
     private javax.swing.JMenuItem archivoCSVMenu;
+    private javax.swing.JMenu ayudaMenu;
+    private javax.swing.JButton cerrarEditar;
     private javax.swing.JPopupMenu conceptualMenu;
+    private javax.swing.JDialog editarConfig;
     private javax.swing.JMenuItem editarHost;
     private javax.swing.JMenuItem eliminarHost;
     private javax.swing.JMenuItem exportarItalc;
     private javax.swing.JButton guardarDatos;
+    private javax.swing.JButton guardarDatos1;
     private javax.swing.JMenuItem guardarMenu;
     private javax.swing.JMenu importarMenu;
     private javax.swing.JTextField ipText;
+    private javax.swing.JTextField ipTextEditar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -519,15 +694,18 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton limpiarCampos;
     private javax.swing.JMenuItem limpiarMenu;
     private javax.swing.JLabel logOut;
     private javax.swing.JTextField macText;
+    private javax.swing.JTextField macTextEditar;
     private javax.swing.JTextField nombreEstatico;
     private javax.swing.JTextField nombreIncremental;
     private javax.swing.JTextField nombreText;
+    private javax.swing.JTextField nombreTextEditar;
     private javax.swing.JMenuItem salirMenu;
     private javax.swing.JTable tablaHosts;
     private javax.swing.JMenuItem toDHCPfile;
@@ -535,6 +713,8 @@ public class Main extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     static ArrayList<Host> hosts = new ArrayList<Host>();
     String tmp = "";
-    private static int id=1000;
-    private static HostModel hm= new HostModel();
+    private static int id = 1000;
+    private static HostModel hm = new HostModel();
+    private JDialog splash;
+    private Host temp = new Host();
 }

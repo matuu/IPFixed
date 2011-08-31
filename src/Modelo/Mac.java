@@ -12,7 +12,7 @@ public class Mac {
     
     String mac;
 
-    public String getMac() {
+    public String getMacText() {
         return mac;
     }
 
@@ -23,6 +23,29 @@ public class Mac {
     public Mac() {
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Mac other = (Mac) obj;
+        if ((this.mac == null) ? (other.mac != null) : !this.mac.equals(other.mac)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 47 * hash + (this.mac != null ? this.mac.hashCode() : 0);
+        return hash;
+    }
+
+    
     public Mac(String mac) {
         this.mac = mac;
     }

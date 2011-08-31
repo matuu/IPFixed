@@ -66,6 +66,7 @@ public class exportarItalc extends javax.swing.JDialog {
         jPanel1.add(jLabel2);
         jPanel1.add(nombreClase);
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/116.png"))); // NOI18N
         jButton1.setText("Carcelar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,6 +75,7 @@ public class exportarItalc extends javax.swing.JDialog {
         });
         jPanel1.add(jButton1);
 
+        exportarItalc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/8.png"))); // NOI18N
         exportarItalc.setText("Exportar");
         exportarItalc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

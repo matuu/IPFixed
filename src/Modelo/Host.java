@@ -77,7 +77,7 @@ public class Host {
     }
 
     public String getMac() {
-        return mac.getMac();
+        return mac.getMacText();
     }
     public String getMacCon2Puntos(){
         return mac.con2Puntos();

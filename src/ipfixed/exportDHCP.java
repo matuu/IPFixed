@@ -66,6 +66,7 @@ public class exportDHCP extends javax.swing.JDialog {
             }
         });
 
+        seleccionarArchivosExport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/16.png"))); // NOI18N
         seleccionarArchivosExport.setText("Seleccionar...");
         seleccionarArchivosExport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +74,7 @@ public class exportDHCP extends javax.swing.JDialog {
             }
         });
 
+        aceptarExportDHCP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/8.png"))); // NOI18N
         aceptarExportDHCP.setText("Exportar");
         aceptarExportDHCP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +82,7 @@ public class exportDHCP extends javax.swing.JDialog {
             }
         });
 
+        carcelarExportDHCP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/116.png"))); // NOI18N
         carcelarExportDHCP.setText("Carcelar");
         carcelarExportDHCP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,9 +103,9 @@ public class exportDHCP extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(mostrarRuta, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+                        .addComponent(mostrarRuta, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(seleccionarArchivosExport, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(seleccionarArchivosExport, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(carcelarExportDHCP, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)

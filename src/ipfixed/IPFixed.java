@@ -14,8 +14,11 @@ public class IPFixed {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+              
         
+            Main.main(args);
         
-        Main.main(args);
+        }
+        
     }
-}
+

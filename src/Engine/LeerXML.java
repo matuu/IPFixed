@@ -52,7 +52,7 @@ public class LeerXML {
                     h.setId(id);
                     id++;
                     hosts.add(h);
-                    System.out.print(h);
+                    //System.out.print(h);
                 }
                 Main.setHost(hosts);
                 Main.setId(id);

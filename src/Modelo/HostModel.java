@@ -36,7 +36,7 @@ public class HostModel extends AbstractTableModel {
     }
 
     public void addHost(Host h) {
-        // Añade la persona al modelo
+        
         datos.add(h);
 
         TableModelEvent evento;
@@ -87,7 +87,7 @@ public class HostModel extends AbstractTableModel {
 
     @Override
     public String getColumnName(int columnIndex) {
-        /*int ,banco, plaza,num_cheque, importe  pers_pago, pers_entregado,fecha_cobro comentario;*/
+        
         switch (columnIndex) {
             case 0:
                 return "ID";
@@ -96,7 +96,7 @@ public class HostModel extends AbstractTableModel {
             case 2:
                 return "IP";
             case 3:
-                return "MAC°";
+                return "MAC";
 
 
             default:
@@ -119,7 +119,7 @@ public class HostModel extends AbstractTableModel {
 
         aux = (Host) (datos.get(row));
         try {
-            switch (col) { /*int ,banco, plaza,num_cheque, importe  pers_pago, pers_entregado,fecha_cobro comentario;*/
+            switch (col) { 
                 case 0:
                     aux.setId((Integer) value);
                     break;
@@ -163,9 +163,7 @@ public class HostModel extends AbstractTableModel {
      */
     @Override
     public boolean isCellEditable(int row, int col) {
-        //Note that the data/cell address is constant,
-        //no matter where the cell appears onscreen.
-        
+               
             return false;
         
     }

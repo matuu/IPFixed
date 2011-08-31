@@ -72,6 +72,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/ipfixed/resources/116.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Carcelar"/>
           </Properties>
           <Events>
@@ -80,6 +83,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="exportarItalc">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/ipfixed/resources/8.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Exportar"/>
           </Properties>
           <Events>

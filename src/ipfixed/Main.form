@@ -8,13 +8,109 @@
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
       <SubComponents>
-        <MenuItem class="javax.swing.JMenuItem" name="eliminarHost">
+        <MenuItem class="javax.swing.JMenuItem" name="editarHost">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/ipfixed/resources/2.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Editar"/>
+          </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eliminarHostActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editarHostActionPerformed"/>
           </Events>
         </MenuItem>
-        <MenuItem class="javax.swing.JMenuItem" name="editarHost">
+        <MenuItem class="javax.swing.JMenuItem" name="eliminarHost">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/ipfixed/resources/116.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Eliminar"/>
+          </Properties>
         </MenuItem>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JDialog" name="editarConfig">
+      <Properties>
+        <Property name="defaultCloseOperation" type="int" value="2"/>
+        <Property name="title" type="java.lang.String" value="Editar Configuraci&#xf3;n"/>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[357, 200]"/>
+        </Property>
+        <Property name="modal" type="boolean" value="true"/>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Component id="jPanel4" alignment="0" pref="357" max="32767" attributes="2"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Component id="jPanel4" alignment="0" pref="168" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="jPanel4">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                <TitledBorder title="Editar Configuraci&#xf3;n"/>
+              </Border>
+            </Property>
+          </Properties>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+            <Property name="columns" type="int" value="2"/>
+            <Property name="rows" type="int" value="4"/>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel5">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nombre:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="nombreTextEditar">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel6">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="MAC Adress:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="macTextEditar">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel7">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Direcci&#xf3;n IP:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="ipTextEditar">
+            </Component>
+            <Component class="javax.swing.JButton" name="cerrarEditar">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/ipfixed/resources/116.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Cerrar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cerrarEditarActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="guardarDatos1">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/ipfixed/resources/112.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Aceptar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guardarDatos1ActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
@@ -26,6 +122,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="abrirMenu">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/ipfixed/resources/105.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Abrir"/>
               </Properties>
               <Events>
@@ -34,6 +133,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="guardarMenu">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/ipfixed/resources/7.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Guardar"/>
               </Properties>
               <Events>
@@ -42,11 +144,17 @@
             </MenuItem>
             <Menu class="javax.swing.JMenu" name="importarMenu">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/ipfixed/resources/112.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Importar"/>
               </Properties>
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="archivoCSVMenu">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/ipfixed/resources/8.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Archivo .csv"/>
                   </Properties>
                   <Events>
@@ -57,6 +165,9 @@
             </Menu>
             <MenuItem class="javax.swing.JMenuItem" name="salirMenu">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/ipfixed/resources/Exit.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Salir"/>
               </Properties>
               <Events>
@@ -72,6 +183,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="limpiarMenu">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/ipfixed/resources/38.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Limpiar Hosts"/>
               </Properties>
               <Events>
@@ -87,6 +201,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="exportarItalc">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/ipfixed/resources/54.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Exportar configuraci&#xf3;n a iTalc"/>
               </Properties>
               <Events>
@@ -95,10 +212,31 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="toDHCPfile">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/ipfixed/resources/31.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Exportar a formato DHCP"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="toDHCPfileActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="ayudaMenu">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ayuda"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="acercaDeMenu">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/ipfixed/resources/65.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Acerca de"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="acercaDeMenuActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -108,6 +246,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="IPFixed"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
@@ -128,11 +267,11 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" pref="556" max="32767" attributes="1"/>
+          <Component id="jPanel1" alignment="0" pref="566" max="32767" attributes="1"/>
           <Component id="jPanel2" alignment="0" max="32767" attributes="1"/>
-          <Component id="jSeparator1" alignment="0" pref="556" max="32767" attributes="0"/>
-          <Component id="logOut" alignment="0" pref="556" max="32767" attributes="0"/>
-          <Component id="jPanel3" alignment="0" pref="556" max="32767" attributes="0"/>
+          <Component id="jSeparator1" alignment="0" pref="566" max="32767" attributes="0"/>
+          <Component id="logOut" alignment="0" pref="566" max="32767" attributes="0"/>
+          <Component id="jPanel3" alignment="0" pref="566" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -189,6 +328,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="limpiarCampos">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/ipfixed/resources/38.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Limpiar"/>
           </Properties>
           <Events>
@@ -197,6 +339,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="guardarDatos">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/ipfixed/resources/112.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Aceptar"/>
           </Properties>
           <Events>
@@ -273,6 +418,9 @@
         </Component>
         <Component class="javax.swing.JToggleButton" name="usarBoolean">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/ipfixed/resources/no.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Usar"/>
           </Properties>
           <Events>
@@ -296,6 +444,9 @@
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="hm" type="code"/>
+                </Property>
+                <Property name="componentPopupMenu" type="javax.swing.JPopupMenu" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="conceptualMenu"/>
                 </Property>
               </Properties>
               <AuxValues>

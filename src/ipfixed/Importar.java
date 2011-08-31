@@ -57,7 +57,7 @@ public class Importar extends javax.swing.JDialog {
 
         TextoInfo.setBorder(null);
         TextoInfo.setEditable(false);
-        TextoInfo.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        TextoInfo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         TextoInfo.setDisabledTextColor(new java.awt.Color(1, 1, 1));
         TextoInfo.setMargin(new java.awt.Insets(20, 20, 20, 20));
         jScrollPane1.setViewportView(TextoInfo);
@@ -72,6 +72,7 @@ public class Importar extends javax.swing.JDialog {
             }
         });
 
+        seleccionarFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/16.png"))); // NOI18N
         seleccionarFile.setText("Seleccionar...");
         seleccionarFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,6 +80,7 @@ public class Importar extends javax.swing.JDialog {
             }
         });
 
+        importarConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/8.png"))); // NOI18N
         importarConfig.setText("Importar");
         importarConfig.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +88,7 @@ public class Importar extends javax.swing.JDialog {
             }
         });
 
+        cerrarImportar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ipfixed/resources/116.png"))); // NOI18N
         cerrarImportar.setText("Cerrar");
         cerrarImportar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,19 +103,16 @@ public class Importar extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
-                        .addContainerGap())
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(mostrarRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(seleccionarFile, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                        .addContainerGap())
+                        .addComponent(seleccionarFile, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(cerrarImportar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(importarConfig, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addComponent(importarConfig, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cerrarImportar, importarConfig});
@@ -149,7 +149,7 @@ public class Importar extends javax.swing.JDialog {
 
     private void seleccionarFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccionarFileActionPerformed
         JFileChooser fileChooser = new JFileChooser();
-        int seleccion = fileChooser.showSaveDialog(this);
+        int seleccion = fileChooser.showOpenDialog(this);
         if (seleccion == JFileChooser.APPROVE_OPTION) {
             fileSave = fileChooser.getSelectedFile();
             mostrarRuta.setText(fileSave.getAbsolutePath());
